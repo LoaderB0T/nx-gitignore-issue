@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@gitignore-issue/lib-a": ["libs/lib-a/src/index.ts"],
+      "@gitignore-issue/lib-b": ["libs/lib-b/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

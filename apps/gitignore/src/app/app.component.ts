@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LibBService } from '@gitignore-issue/lib-b';
 
 @Component({
   selector: 'gitignore-issue-root',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'gitignore';
+
+  constructor(libBService: LibBService) {
+    console.log(libBService.hello());
+  }
 }

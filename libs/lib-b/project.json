@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/lib-b",
+  "sourceRoot": "libs/lib-b/src",
+  "prefix": "gitignore-issue",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/lib-b"],
+      "options": {
+        "project": "libs/lib-b/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/lib-b/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/lib-b/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/lib-b"],
+      "options": {
+        "jestConfig": "libs/lib-b/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/lib-b/src/**/*.ts",
+          "libs/lib-b/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
