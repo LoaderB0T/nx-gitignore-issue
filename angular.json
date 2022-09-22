@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "gitignore": "apps/gitignore",
+    "gitignore-e2e": "apps/gitignore-e2e"
+  }
+}

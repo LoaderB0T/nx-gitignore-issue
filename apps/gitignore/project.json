@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/gitignore",
+  "sourceRoot": "apps/gitignore/src",
+  "prefix": "gitignore-issue",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/gitignore",
+        "index": "apps/gitignore/src/index.html",
+        "main": "apps/gitignore/src/main.ts",
+        "polyfills": "apps/gitignore/src/polyfills.ts",
+        "tsConfig": "apps/gitignore/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/gitignore/src/favicon.ico",
+          "apps/gitignore/src/assets"
+        ],
+        "styles": ["apps/gitignore/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/gitignore/src/environments/environment.ts",
+              "with": "apps/gitignore/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "gitignore:build:production"
+        },
+        "development": {
+          "browserTarget": "gitignore:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "gitignore:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/gitignore/src/**/*.ts",
+          "apps/gitignore/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/gitignore"],
+      "options": {
+        "jestConfig": "apps/gitignore/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
